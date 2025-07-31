@@ -9,7 +9,7 @@ import buyTicketsImg from "../../assets/buy-tickets-homepage_s11.png";
 import tickets from "../../assets/tickets.png";
 import paltanWorldHomeBgImg from "../../assets/paltan-world-home-bg.jpg";
 import paltanWorldHomePage from "../../assets/paltan-world-homepage_s11.png";
-import puneriWorldBg from "../../assets/puneri-world-bg_s111.jpg";
+import puneriWorldBg from "../../assets/puneri-world-bg_S111.jpg";
 import puneriWorldRightDust from "../../assets/puneri-world-right-dust.png";
 import puneriWorldMiddleDust from "../../assets/puneri-world-middle-dust.png";
 import puneriWorldLeftDust from "../../assets/puneri-world-left-dust.png";
