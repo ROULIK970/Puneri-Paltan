@@ -1,0 +1,39 @@
+.navbar {
+  position: fixed;
+  top: 30px;
+  width: 100%;
+  z-index: 9999;
+  transition: transform 0.8s ease;
+  color: white;
+}
+
+.nav-up {
+  transform: translateY(-200%);
+}
+
+
+.nav-down {
+  transform: translateY(0);
+}
+
+nav:before {
+    content: '';
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(#000), to(#000), color-stop(50%, white));
+    position: absolute;
+    top: 0;
+    width: 60%;
+    height: 2px;
+    right: 4px;
+    animation: blinker 3s linear infinite;
+}
+
+nav:after {
+      content: '';
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(#000), to(#000), color-stop(50%, white));
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    height: 1px;
+    left: 15%;
+    animation: blinker 3s linear infinite;
+}
