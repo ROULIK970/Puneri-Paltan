@@ -1,25 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAllPlayers = createAsyncThunk('get-players', async()=>{
-        try {
-            
-          const res1 =  await axios.get(
-            "https://appy.trycatchtech.com/v3/puneri_paltan/player_list?cat_id=1"
-          );
-           const res2 = await axios.get(
-             "https://appy.trycatchtech.com/v3/puneri_paltan/player_list?cat_id=2"
-           );
-            const res3 = await axios.get(
-              "https://appy.trycatchtech.com/v3/puneri_paltan/player_list?cat_id=3"
-            );
-          const res = [...res1.data, ...res2.data, ...res3.data]
- 
-          return res
-        } catch (error) {
-          throw error
-        }
-})
+
+
+export const getAllPlayers = createAsyncThunk("get-players", async () => {
+  try {
+    const catIds = [1, 2, 3];
+    let allPlayers = [];
+
+    for (const id of catIds) {
+      const response = await axios.get(
+        `https://appy.trycatchtech.com/v3/puneri_paltan/player_list?cat_id=${id}`
+      );
+      allPlayers = [...allPlayers, ...response.data];
+    }
+
+    return allPlayers;
+  } catch (error) {
+    throw error;
+  }
+});
+
+
 
 export const getPlayersCategory = createAsyncThunk('get-categories', async() =>{
   try {
