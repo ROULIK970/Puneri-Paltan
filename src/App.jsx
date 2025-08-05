@@ -1,23 +1,32 @@
-import Home from "./components/Home/Home"
+import Home from "./components/Home/Home";
 import Header from "./components/global/Header/Header";
 import Footer from "./components/global/Footer/Footer";
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import Players from "./components/Players/Players";
 import PaltanWorld from "./components/PaltanWorld/PaltanWorld";
 import SinglePlayer from "./components/SinglePlayer/SinglePlayer";
 import PuneriTV from "./components/PuneriTV/PuneriTV";
 import Gallery from "./components/Gallery/Gallery";
 import SingleGallery from "./components/SingleGallery/SingleGallery";
-import SlantedButton from "./components/global/SlantedButton/SlantedButton";
 import PageNotFound from "./components/PageNotFound/PageNotFound";
-
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+     window.scrollTo(0, 0);
+    AOS.init({
+      duration: 1000,
+      once: false,
+      easing:'ease-in-out',
+    });
+  }, []);
 
   return (
     <>
       <Header />
+
       <Routes>
         <Route path="*" element={<PageNotFound />} />
         <Route path="/" element={<Home />} />
@@ -28,9 +37,10 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/gallery/:galleryid" element={<SingleGallery />} />
       </Routes>
+
       <Footer />
     </>
   );
 }
 
-export default App
+export default App;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import homeImg from "../../assets/puneri-paltan-homeImg.webp";
 import bgImage from "../../assets/description-bg-new.jpg";
-import {SimpleSlider} from "../global/Slider/Slider";
+import { SimpleSlider } from "../global/Slider/Slider";
 import { useDispatch } from "react-redux";
 import { getAllPlayers } from "../../app/actions/player-action";
 import { Link } from "react-router-dom";
@@ -13,21 +13,20 @@ import puneriWorldBg from "../../assets/puneri-world-bg_S111.jpg";
 import puneriWorldRightDust from "../../assets/puneri-world-right-dust.png";
 import puneriWorldMiddleDust from "../../assets/puneri-world-middle-dust.png";
 import puneriWorldLeftDust from "../../assets/puneri-world-left-dust.png";
-import newsBg from '../../assets/news-bg.jpg'
-import newsBanner from '../../assets/news-banner.jpg'
-import forceMotors from '../../assets/partners/force_motors.png'
+import newsBg from "../../assets/news-bg.jpg";
+import newsBanner from "../../assets/news-banner.jpg";
+import forceMotors from "../../assets/partners/force_motors.png";
 import bateryAI from "../../assets/partners/Batery-Ai_logo.png";
 import korloskarBrother from "../../assets/partners/korloskar-brother-logo.png";
 import stihl from "../../assets/partners/stihl-logo.png";
 import hint from "../../assets/partners/hint_logo.png";
 import vikramTea from "../../assets/partners/vikram-tea.png";
 import f1Focus from "../../assets/partners/F1-Focus11_logo.png";
-import radio from '../../assets/partners/radio.png'
-import icon from '../../assets/partners/icon-logo.png'
-import shivNaresh from '../../assets/partners/shiv-naresh-logo.png'
+import radio from "../../assets/partners/radio.png";
+import icon from "../../assets/partners/icon-logo.png";
+import shivNaresh from "../../assets/partners/shiv-naresh-logo.png";
 import SlantedButton from "../global/SlantedButton/SlantedButton";
-
-
+import AOS from "aos";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -69,7 +68,10 @@ export default function Home() {
           {/* "players" text */}
           <div className="w-1/3 ps-[4%] pe-[15px] md:mx-auto sm:mx-auto">
             <div className=" h-[65vh] w-full flex items-center justify-center">
-              <h2 className="text-[90px] text-center text-[#ff7500] tracking-[7px] ml-[20%] mt-[-15px] ">
+              <h2
+                data-aos="fade-down"
+                className="text-[90px] text-center text-[#ff7500] tracking-[7px] ml-[20%] mt-[-15px] "
+              >
                 PLAYERS
               </h2>
             </div>
@@ -143,10 +145,16 @@ export default function Home() {
               alt="dust"
             />
             <div className="absolute top-[38%] right-[27%] translate-x-[50%] z-[9]">
-              <h2 className="md:text-[70px] sm:text-[50px] lg:text-[110px] text-[#ff7500] tracking-[7px] font-[400px]">
+              <h2
+                data-aos="fade-down"
+                className="md:text-[70px] sm:text-[50px] lg:text-[110px] text-[#ff7500] tracking-[7px] font-[400px]"
+              >
                 PALTAN
               </h2>
-              <h2 className="md:text-[70px] sm:text-[50px] mt-[-20%] ml-[7%] text-white translate-y-[20px] lg:text-[110px] tracking-[7px] m-0">
+              <h2
+                data-aos="fade-up"
+                className="md:text-[70px] sm:text-[50px] mt-[-20%] ml-[7%] text-white translate-y-[20px] lg:text-[110px] tracking-[7px] m-0"
+              >
                 WORLD
               </h2>
               <Link to="/paltan-world">
@@ -166,10 +174,16 @@ export default function Home() {
           >
             <div className="mx-[-15px]">
               <div className="flex flex-col justify-center items-center text-center h-[561px] w-[100%] align-middle">
-                <h2 className="lg:text-[90px] md:text-[70px] sm:text-[70px] text-[70px] text-center mb-[-4%] tracking-[7px] text-[#ff7500]">
+                <h2
+                  data-aos="fade-down"
+                  className="lg:text-[90px] md:text-[70px] sm:text-[70px] text-[70px] text-center mb-[-4%] tracking-[7px] text-[#ff7500]"
+                >
                   PUNERI PALTAN
                 </h2>
-                <h2 className="lg:text-[90px] md:text-[70px] sm:text-[70px] text-center tracking-[7px] font-[400] text-white mt-[20px]">
+                <h2
+                  data-aos="fade-up"
+                  className="lg:text-[90px] md:text-[70px] sm:text-[70px] text-center tracking-[7px] font-[400] text-white mt-[20px]"
+                >
                   IN THE NEWS
                 </h2>
               </div>
@@ -184,7 +198,10 @@ export default function Home() {
 
         <section className="bg-[#ff7500] h-[100px] relative w-[90%] mt-[-50px] mx-auto skew-x-[-15deg]">
           <div className="px-[15px] lg:w-[970px] w-auto flex lg:flex-row flex-col h-full items-center">
-            <h3 className=" text-center skew-x-[15deg] text-white text-[22px] lg:text-[28px] tracking-[2px] leading-[110%] ">
+            <h3
+              data-aos="zoom-in"
+              className=" text-center skew-x-[15deg] text-white text-[22px] lg:text-[28px] tracking-[2px] leading-[110%] "
+            >
               SUBSCRIBE TO OUR NEWSLETTER
             </h3>
             <div className="lg:w-1/2 skew-x-[-15deg]">
@@ -203,7 +220,10 @@ export default function Home() {
         <section className="pb-[100px]">
           <div className="lg:w-[970px] md:w-auto sm:w-auto mx-auto px-[15px]">
             <div className="mx-[-15px] w-[100%]">
-              <h2 className="text-center py-[30px] text-[70px] lg:text-[110px] tracking-[7px] text-[#ff7500]">
+              <h2
+                data-aos="zoom-in"
+                className="text-center py-[30px] text-[70px] lg:text-[110px] tracking-[7px] text-[#ff7500]"
+              >
                 PARTNERS
               </h2>
             </div>

@@ -37,8 +37,16 @@ useEffect(() => {
       >
         <div className="px-[15px] flex">
           <div className="relative w-auto lg:w-[33.33%] ml-[16.66%] h-[700px] flex flex-col justify-center">
-            <img className=" h-auto " src={bannerTitle} alt="" />
-            <h1 className="absolute top-[37%] left-[2%] text-[50px] lg:text-[80px] tracking-[10px]  text-white">
+            <img
+              data-aos="fade-up"
+              className=" h-auto "
+              src={bannerTitle}
+              alt=""
+            />
+            <h1
+              data-aos="fade-down"
+              className="absolute top-[37%] left-[2%] text-[50px] lg:text-[80px] tracking-[10px]  text-white"
+            >
               PLAYERS
             </h1>
           </div>
@@ -72,6 +80,7 @@ useEffect(() => {
                       <div className="pb-[50px] transition-transform duration-300 [will-change:transform] hover:[transform:perspective(300px)_rotateX(1.14deg)_rotateY(0.42deg)_scale3d(1,1,1)]">
                         <Link to={`/players/${player.id}`}>
                           <img
+                            data-aos="fade-up"
                             className="h-auto w-auto md:h-[351px] md:w-[351px] lg:w-[351px] lg:h-[351px] mx-auto "
                             src={player.profile_image}
                             alt=""
