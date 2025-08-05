@@ -12,8 +12,10 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation()
   useEffect(() => {
      window.scrollTo(0, 0);
     AOS.init({
@@ -21,7 +23,7 @@ function App() {
       once: false,
       easing:'ease-in-out',
     });
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>
