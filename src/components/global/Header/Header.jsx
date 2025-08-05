@@ -51,51 +51,67 @@ export default function Header() {
   return (
     <header className={`navbar ${showNav ? "nav-down" : "nav-up"}`}>
       <nav
-        className="bg-[#0000004d] h-[100px] flex mx-auto w-[95%] skew-x-[-15deg] text-[#333] relative"
+        className="h-[100px] flex mx-auto w-full lg:w-[95%] relative overflow-hidden"
         style={{
           boxShadow:
             "inset 0 0 0 rgb(255 255 255 / 15%), 0 1px 5px rgb(0 0 0 / 8%)",
         }}
       >
-        {openNavElements ? (
-          <IoMdClose
-            className="lg:hidden mt-[30px] me-[15px] mb-[8px] skew-x-[15deg] py-[9px] px-[10px] text-[80px] opacity-100 text-[#f40] cursor-pointer transition-all .5s ease-out sm:absolute sm:right"
-            onClick={() => setOpenNavElements(false)}
-          />
-        ) : (
-          <GiHamburgerMenu
-            className="lg:hidden mt-[30px] me-[15px] mb-[8px] skew-x-[15deg] py-[9px] px-[10px] text-[80px] opacity-100 text-[#f40] cursor-pointer sm:absolute sm:right"
-            onClick={() => setOpenNavElements(true)}
-          />
-        )}
+        <div className="absolute inset-0 bg-[#0000004d] transform lg:skew-x-[-15deg] origin-top-left transition-transform duration-500 ease-in-out"></div>
 
-        <div className="ml-[80px]">
-          <NavLink to="/">
-            <img
-              className="skew-x-[15deg]  w-[80px] md:w-[120px] absolute right-0 lg:left-0"
-              src={puneriPaltanLogo}
-              alt="puneri paltan"
-            />
-          </NavLink>
-        </div>
-        <ul className="hidden lg:flex justify-center items-center w-[100%] text-white skew-x-[18deg]">
-          {navRoutes.map((route, i) => (
-            <NavLink key={i} to={route.to}>
-              <p className="py-[15px] font-[600] text-[12px] italic px-[10px] hover:text-[#ff7500] transition-all duration-700 ease-in-out">
-                {route.name}
-              </p>
+        <div className="flex items-center justify-between w-full relative z-10 px-4 lg:px-0">
+ 
+          <div className="lg:hidden flex items-center">
+            {openNavElements ? (
+              <IoMdClose
+                className="text-[40px] text-[#f40] cursor-pointer"
+                onClick={() => setOpenNavElements(false)}
+              />
+            ) : (
+              <GiHamburgerMenu
+                className="text-[40px] text-[#f40] cursor-pointer"
+                onClick={() => setOpenNavElements(true)}
+              />
+            )}
+          </div>
+
+          {/* Logo */}
+          <div className="flex-1 text-center lg:text-left lg:flex-none lg:ml-[80px]">
+            <NavLink to="/">
+              <img
+                className="w-[80px] md:w-[120px] inline-block"
+                src={puneriPaltanLogo}
+                alt="puneri paltan"
+              />
             </NavLink>
-          ))}
-        </ul>
-      </nav>
-      {openNavElements && (
-        <div className="bg-[#000] mx-auto w-[95%] px-[15px] ">
-          <ul>
+          </div>
+
+         
+          <ul className="hidden lg:flex justify-center items-center flex-1 text-white">
             {navRoutes.map((route, i) => (
               <NavLink key={i} to={route.to}>
-                <p className="lg:hidden h-[60px] text-white py-[15px] px-[16px] flex justify-center items-center italic font-[600] hover:text-[#ff7500] transition-all duration-700 ease-in-out">
+                <p className="py-[15px] font-[600] text-[12px] italic px-[10px] hover:text-[#ff7500] transition-all duration-700 ease-in-out">
                   {route.name}
                 </p>
+              </NavLink>
+            ))}
+          </ul>
+        </div>
+      </nav>
+
+     
+      {openNavElements && (
+        <div className="bg-[#000] mx-auto w-full lg:w-[95%] px-[15px] lg:hidden">
+          <ul>
+            {navRoutes.map((route, i) => (
+              <NavLink
+                key={i}
+                to={route.to}
+                onClick={() => setOpenNavElements(false)}
+              >
+                <li className="h-[60px] text-white py-[15px] px-[16px] flex justify-center items-center italic font-[600] hover:text-[#ff7500] transition-all duration-700 ease-in-out border-b border-gray-700 last:border-b-0">
+                  {route.name}
+                </li>
               </NavLink>
             ))}
           </ul>
